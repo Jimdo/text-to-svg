@@ -26,6 +26,7 @@
     "clean": "gulp clean",
     "lint": "gulp lint",
     "build": "gulp build",
+    "build:watch": "npm run build && gulp build:watch",
     "prepack": "npm run build"
   },
   "repository": {

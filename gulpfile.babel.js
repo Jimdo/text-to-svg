@@ -57,6 +57,10 @@ gulp.task('build:test:browser', () => {
 
 gulp.task('build', gulp.series('build:src', 'build:res', 'build:test:src', 'build:test:browser'));
 
+gulp.task('build:watch', () => {
+  gulp.watch(['src/**/*', 'test/**/*'], gulp.series('build'));
+});
+
 // Test
 
 gulp.task('version-check', done => {
