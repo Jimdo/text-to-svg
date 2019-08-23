@@ -19,6 +19,8 @@ window.addEventListener('load', () => {
   const getSVGButton = document.querySelector('#get-svg-button');
   const debugInput = document.querySelector('#debug-input');
   const result = document.querySelector('#result');
+  const metrics = document.querySelector('#metrics');
+  const metricsData = document.querySelector('#metrics-data');
 
   let textToSVG;
 
@@ -52,8 +54,20 @@ window.addEventListener('load', () => {
     let svg;
     if (debugInput.checked) {
       svg = textToSVG.getDebugSVG(text, { x, y, fontSize, kerning, anchor });
+
+      const metricsResponse = textToSVG.getMetrics(text, {
+        x,
+        y,
+        fontSize,
+        kerning,
+        anchor,
+      });
+
+      metricsData.innerHTML = JSON.stringify(metricsResponse);
+      metrics.classList.add('show');
     } else {
       svg = textToSVG.getSVG(text, { x, y, fontSize, kerning, anchor });
+      metrics.classList.remove('show');
     }
 
     result.innerHTML = svg;

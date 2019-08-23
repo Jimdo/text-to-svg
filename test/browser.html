@@ -1,14 +1,27 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8" />
     <title>text-to-svg</title>
     <script src="../build/test/browser.js"></script>
+
+    <style>
+        #metrics {
+            display: none;
+        }
+
+        #metrics.show {
+            display: block;
+        }
+    </style>
 </head>
+
 <body>
     <h1>text-to-svg</h1>
     <h2>Loader</h2>
-    <label for="font-url-input">Font URL</label> <input id="font-url-input" type="text" value="https://rawgit.com/shrhdk/text-to-svg/master/fonts/ipag.ttf" />
+    <label for="font-url-input">Font URL</label> <input id="font-url-input" type="text"
+        value="https://rawgit.com/shrhdk/text-to-svg/master/fonts/ipag.ttf" />
     <button id="load-button">load</button>
     <div id="load-status"></div>
     <h2>Parameters</h2>
@@ -41,6 +54,11 @@
     <h2>Result</h2>
     <input id="debug-input" type="checkbox" /><label for="debug-input">debug</label>
     <button id="get-svg-button">getSVG</button>
-    <div id="result" />
+    <div id="result"></div>
+    <div id="metrics">
+        <h3>Metrics</h3>
+        <pre id="metrics-data"></pre>
+    </div>
 </body>
+
 </html>
